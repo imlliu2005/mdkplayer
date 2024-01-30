@@ -160,6 +160,11 @@ qint64 QMDKWidget::duration() const
     return player_->mediaInfo().duration;
 }
 
+void QMDKWidget::setPlaybackRate(float value)
+{
+    player_->setPlaybackRate(value);
+}
+
 void QMDKWidget::prepreForPreview()
 {
     player_->setActiveTracks(MediaType::Audio, {});
@@ -227,10 +232,10 @@ void QMDKWidget::keyPressEvent(QKeyEvent *e)
         qApp->quit();
         break;
     case Qt::Key_C:
-//        if (QKeySequence(e->modifiers() | e->key()) == QKeySequence::Copy) {
-//            snapshot();
-//        }
-         snapshot();
+       if (QKeySequence(e->modifiers() | e->key()) == QKeySequence::Copy) {
+           snapshot();
+       }
+
         break;
     case Qt::Key_F: {
         if (isFullScreen())

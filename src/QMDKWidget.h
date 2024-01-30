@@ -25,7 +25,7 @@ public:
     qint64 position() const;
     void snapshot();
     qint64 duration() const;
-
+    void setPlaybackRate(float value);
     void prepreForPreview(); // load the media, and set parameters
 signals:
     void mouseMoved(int x, int y);
